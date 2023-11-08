@@ -3,15 +3,15 @@ LIBS_FLAGS=-lOpenCL -L/opt/rocm/opencl/lib/
 INCL_FLAGS=-I/opt/rocm/include/
 CFLAGS=-DCL_TARGET_OPENCL_VERSION=200
 
-OBJ = exercise_01.o 
+OBJ = upper_case_cl.o 
 
 %.o: %.c
 	$(CC) -c -o $@ $< $(INCL_FLAGS) $(CFLAGS)
 
-exercise_01: $(OBJ)
+upper_case_cl: $(OBJ)
 	$(CC) -o $@ $^ $(INCL_FLAGS) $(CFLAGS) $(LIBS_FLAGS) $(LIBS)
 
 .PHONY: clean
 
 clean:
-	rm $(OBJ) exercise_01
+	rm $(OBJ) upper_case_cl
